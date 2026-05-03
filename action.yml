@@ -1,0 +1,35 @@
+name: 'Actions Optimizer'
+description: 'Analyzes GitHub Actions workflow files and recommends optimizations: parallelization, caching, unnecessary steps, cost reduction.'
+branding:
+  icon: 'zap'
+  color: 'green'
+
+inputs:
+  workflow-dir:
+    description: 'Directory containing workflow files'
+    required: false
+    default: '.github/workflows'
+  post-comment:
+    description: 'Post optimization report as PR comment'
+    required: false
+    default: 'true'
+  github-token:
+    description: 'GitHub token for API access'
+    required: false
+    default: ${{ github.token }}
+  min-savings-threshold:
+    description: 'Minimum estimated savings % to report'
+    required: false
+    default: '5'
+
+outputs:
+  optimization-count:
+    description: 'Number of optimizations found'
+  estimated-savings:
+    description: 'Estimated time savings percentage'
+  report:
+    description: 'JSON optimization report'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
