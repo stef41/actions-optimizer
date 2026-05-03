@@ -1,5 +1,5 @@
 name: 'Actions Optimizer'
-description: 'Analyzes GitHub Actions workflow files and recommends optimizations: parallelization, caching, unnecessary steps, cost reduction.'
+description: 'Analyzes GitHub Actions workflows and recommends optimizations for speed, caching, and cost.'
 branding:
   icon: 'zap'
   color: 'green'
